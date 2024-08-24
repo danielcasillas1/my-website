@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Casillas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f06, #a8e063); /* Gradient background */
+        }
+        header {
+            background: url('https://example.com/your-image.jpg') no-repeat center center; /* Replace with your image URL */
+            background-size: cover;
+            color: white;
+            padding: 40px 0; /* Increased padding */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            margin: 20px 0;
+            text-align: center; /* Center the navigation links */
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold; /* Bold text for nav links */
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffeb3b; /* Change color on hover */
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background: #0056b3;
+            color: white;
+        }
+        .edit-button {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 5px 10px;
+            background: #ff5722; /* New button color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .edit-button:hover {
+            background: #e64a19; /* Darker on hover */
+        }
+        .edit-area {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Daniel Casillas</h1>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <h2>Home Section</h2>
+    <p id="homeContent">This is the home section of the website. You can add more content here.</p>
+    <button class="edit-button" onclick="editSection('home')">Edit</button>
+    <div class="edit-area" id="homeEdit">
+        <textarea id="homeInput" rows="4" cols="50"></textarea><br>
+        <button class="edit-button" onclick="saveSection('home')">Save</button>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Section</h2>
+    <p id="aboutContent">This section can contain information about you or your website.</p>
+    <button class="edit-button" onclick="editSection('about')">Edit</button>
+    <div class="edit-area" id="aboutEdit">
+        <textarea id="aboutInput" rows="4" cols="50"></textarea><br>
+        <button class="edit-button" onclick="saveSection('about')">Save</button>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Section</h2>
+    <p id="contactContent">Provide your contact information or a contact form here.</p>
+    <button class="edit-button" onclick="editSection('contact')">Edit</button>
+    <div class="edit-area" id="contactEdit">
+        <textarea id="contactInput" rows="4" cols="50"></textarea><br>
+        <button class="edit-button" onclick="saveSection('contact')">Save</button>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 My Basic Website</p>
+</footer>
+
+<script>
+    function editSection(section) {
+        const editArea = document.getElementById(section + 'Edit');
+        const content = document.getElementById(section + 'Content');
+        const input = document.getElementById(section + 'Input');
+        
+        input.value = content.innerText;
+        editArea.style.display = 'block';
+    }
+
+    function saveSection(section) {
+        const content = document.getElementById(section + 'Content');
+        const input = document.getElementById(section + 'Input');
+        const editArea = document.getElementById(section + 'Edit');
+        
+        content.innerText = input.value;
+        editArea.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
